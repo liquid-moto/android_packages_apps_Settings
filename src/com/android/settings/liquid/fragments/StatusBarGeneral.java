@@ -292,7 +292,7 @@ public class StatusBarGeneral extends SettingsPreferenceFragment implements
                     Settings.System.STATUSBAR_UNEXPANDED_COLOR);
             // I'm blanking on a better way to setSummary
             String summary = String.format("%d", unexpandedColor);
-            mWindowshadeBackground.setSummary(summary);
+            mStatusbarUnexpandedColor.setSummary(summary);
         } catch (SettingNotFoundException snfe) {
             // just let it go
         }
