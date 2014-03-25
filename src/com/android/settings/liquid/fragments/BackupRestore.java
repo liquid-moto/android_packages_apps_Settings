@@ -131,15 +131,22 @@ public class BackupRestore extends SettingsPreferenceFragment {
         File makeDirs = new File(PATH_TO_CONFIGS);
         File themersDirs = new File(PATH_TO_THEMES);
 
-        if (!makeDirs.exists()) {
-            if (!makeDirs.mkdirs()) {
-                Log.d(TAG, "failed to create the required directories");
-            }
-        }
+	Log.d(TAG, "Ext SDcard: " + SDCARD);
+	Log.d(TAG, "Path to Configs: " + PATH_TO_CONFIGS);
+	Log.d(TAG, "Path to Themes: " + PATH_TO_THEMES);
 
+		if (!makeDirs.exists()) {
+           	Log.d(TAG, "Configs dir does not exist. Will try to create.");
+			makeDirs.mkdirs();
+			if (!makeDirs.exists()) {
+				Log.w(TAG, "Failed to create Configs directory");
+			}
+		}
         if (!themersDirs.exists()) {
-            if (!themersDirs.mkdirs()) {
-                Log.d(TAG, "failed to create theme directory");
+            Log.d(TAG, "Themes dir does not exist. Will try to create.");
+            themersDirs.mkdirs();
+			if (!themersDirs.exists()) {
+                Log.w(TAG, "Failed to create Themes directory");
             }
         }
 
